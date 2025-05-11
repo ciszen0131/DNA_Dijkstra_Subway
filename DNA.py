@@ -105,4 +105,4 @@ else:
             time -= HWANSEUNG
         
     
-    print(f"최단 시간: {time}분")
+    print(f"최단 시간: {time}분.")

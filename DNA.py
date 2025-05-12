@@ -107,3 +107,6 @@ else:
         
     
     print(f"최단 시간: {time}분")
+
+
+    print(graph)

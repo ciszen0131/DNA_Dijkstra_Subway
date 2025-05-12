@@ -1,7 +1,7 @@
 import heapq
 
-YIDONG = 2
-HWANSEUNG = 5
+YIDONG = 2.5
+HWANSEUNG = 3
 
 line_1 = [
     "청량리역", "제기동역", "신설동역", "동묘앞역", "동대문역", "종로5가역", "종로3가역", "종각역",
@@ -86,13 +86,14 @@ if start not in graph or end not in graph:
     print("입력하신 역 이름이 올바르지 않습니다.")
 else:
     time, path, lines = dijkstra(start, end)
-
+    
     print(f"{rename(path[0])}에서 탑승해서 ", end="")
 
-    for i in range(len(path) - 1):
-        # 두 역이 다른 노선에 속하는 경우에만 환승 시간 추가
-        if lines[i] != lines[i + 1] and lines[i + 1] != "환승":
-            print(f"{rename(path[i])}에서 {lines[i + 1]}으로 환승하신 다음에 ", end="")
+    for i in range(1, len(path) - 1):
+        if lines[1] != "환승":
+            if lines[i] != lines[i + 1] and lines[i + 1] != "환승":
+                print(f"{rename(path[i])}에서 {lines[i + 1]}으로 환승하신 다음에 ", end="")
+
 
     print(f"{rename(path[-1])}에서 내리시면 됩니다.")
     if ((start == "신도림역") or (start == "시청역")):

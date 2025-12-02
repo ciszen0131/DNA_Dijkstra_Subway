@@ -288,7 +288,7 @@ class DataPreprocessor:
             numeric_cols = df.select_dtypes(include=[np.number]).columns
             df[numeric_cols] = df[numeric_cols].interpolate(method='linear')
         elif method == 'ffill':
-            df = df.fillna(method='ffill').fillna(method='bfill')
+            df = df.ffill().bfill()
         elif method == 'mean':
             numeric_cols = df.select_dtypes(include=[np.number]).columns
             df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
